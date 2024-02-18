@@ -103,6 +103,7 @@
 
         li:hover {
             color: rgb(243, 243, 71);
+            cursor: pointer;
         }
 
         #question {
@@ -111,6 +112,35 @@
             font-style: normal;
             font-weight: 500;
             color: white;
+        }
+
+        #alert-win {
+            position: absolute;
+            padding: 100px;
+            min-width: 400px;
+            background-color: rgb(154, 243, 132);
+            font-family: Roboto;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            color: rgb(50, 85, 41);
+            text-align: center;
+            animation: fadeModal 0.4s;
+            border-radius: 15px;
+        }
+        #alert-lose {
+            position: absolute;
+            padding: 100px;
+            min-width: 400px;
+            background-color: rgb(241, 155, 121);
+            font-family: Roboto;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            color: rgb(102, 55, 37);
+            text-align: center;
+            animation: fadeModal 0.4s;
+            border-radius: 15px;
         }
 
         @keyframes fadeModal {
@@ -158,6 +188,9 @@
                 </article>
             </div>
         </div>
+
+        <div id="alert-win" style="display: none;">Верно!</div>
+        <div id="alert-lose" style="display: none;">Не верно :( Попробуйте еще!</div>
     </div>
 
     <script type="module" src="src/main.js"></script>

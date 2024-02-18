@@ -19,6 +19,20 @@ export default class Game extends Phaser.Scene {
     }
 
     create() {
+        const showWinAlert = () => {
+            document.getElementById('alert-win').style.display = 'block'
+
+            setTimeout(() => {
+                document.getElementById('alert-win').style.display = 'none'
+            }, 1500)
+        }
+        const showLoseAlert = () => {
+            document.getElementById('alert-lose').style.display = 'block'
+
+            setTimeout(() => {
+                document.getElementById('alert-lose').style.display = 'none'
+            }, 1500)
+        }
         const hideModal = () => {
             document.getElementById('modal').style.display = 'none'
             document.getElementById('blur').style.display = 'none'
@@ -27,8 +41,8 @@ export default class Game extends Phaser.Scene {
             const currentModalName = event.target.name
             const index = event.target.id - 1
 
-            if (questions[currentModalName].variants[index].isRightAnswer) alert('Верно!')
-            else alert('Не верно :( Попробуйте еще!')
+            if (questions[currentModalName].variants[index].isRightAnswer) showWinAlert()
+            else showLoseAlert()
 
             hideModal()
         }
