@@ -6,6 +6,39 @@ export default class Game extends Phaser.Scene {
     }
 
     preload() {
+        const { width, height } = this.scale
+
+        const progress = this.add.graphics()
+        const startAngle = Math.PI * 3 / 2
+
+        const text = progress.scene.add.text(
+            width / 2,
+            height / 2 + 250,
+            'Loading: 0%'
+        )
+
+        text.setOrigin(0.5, 0.5)
+        progress.text = text
+
+        this.load.on('progress', function (value) {
+            progress.clear()
+
+            const endAngle = startAngle + value * 2 * Math.PI
+            progress.beginPath()
+            progress.lineStyle(30, 0xffffff, 1.0)
+            progress.arc(width / 2, height / 2, 150, startAngle, endAngle, false);
+            progress.strokePath()
+            progress.closePath()
+
+            const progressText = Math.floor(value * 100) + '%'
+            progress.text.setText('Loading: ' + progressText);
+
+        })
+
+        this.load.on('complete', function () {
+            progress.destroy();
+        })
+
         this.load.setBaseURL('./resources')
 
         this.load.image('background', 'game-background.jpg')
@@ -15,10 +48,23 @@ export default class Game extends Phaser.Scene {
         this.load.image('hair', 'hair.png')
         this.load.image('byust', 'byust.png')
         this.load.image('dvorez', 'dvorez.png')
-        this.load.image('modal', 'modal.png')
     }
 
     create() {
+        const showWinAlert = () => {
+            document.getElementById('alert-win').style.display = 'block'
+
+            setTimeout(() => {
+                document.getElementById('alert-win').style.display = 'none'
+            }, 1500)
+        }
+        const showLoseAlert = () => {
+            document.getElementById('alert-lose').style.display = 'block'
+
+            setTimeout(() => {
+                document.getElementById('alert-lose').style.display = 'none'
+            }, 1500)
+        }
         const hideModal = () => {
             document.getElementById('modal').style.display = 'none'
             document.getElementById('blur').style.display = 'none'
@@ -27,8 +73,8 @@ export default class Game extends Phaser.Scene {
             const currentModalName = event.target.name
             const index = event.target.id - 1
 
-            if (questions[currentModalName].variants[index].isRightAnswer) alert('Верно!')
-            else alert('Не верно :( Попробуйте еще!')
+            if (questions[currentModalName].variants[index].isRightAnswer) showWinAlert()
+            else showLoseAlert()
 
             hideModal()
         }
