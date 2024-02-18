@@ -14,10 +14,8 @@ export default class Game extends Phaser.Scene {
         const text = progress.scene.add.text(
             width / 2,
             height / 2 + 250,
-            'Loading: 0%',
-            {
-                font: '40px Inter', fill: '#FFFFFF'
-            })
+            'Loading: 0%'
+        )
 
         text.setOrigin(0.5, 0.5)
         progress.text = text
@@ -50,7 +48,6 @@ export default class Game extends Phaser.Scene {
         this.load.image('hair', 'hair.png')
         this.load.image('byust', 'byust.png')
         this.load.image('dvorez', 'dvorez.png')
-        this.load.image('modal', 'modal.png')
     }
 
     create() {
