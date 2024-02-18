@@ -1,0 +1,87 @@
+{
+    "mariya": {
+        "question": "Кто автор портрета Марии-Антуанетты с розой?",
+        "variants": [
+            {
+                "text": "Элизабет Виже-Лебрен",
+                "isRightAnswer": true
+            },
+            {
+                "text": "Аделаида Лабиль-Гиар",
+                "isRightAnswer": false
+            },
+            {
+                "text": "Ангелика Кауфман",
+                "isRightAnswer": false
+            }
+        ]
+    },
+    "hair": {
+        "question": "Целый стиль искусства 18 века был направлен на украшение интерьера, соданию уюта частного лица. Что это за стиль?",
+        "variants": [
+            {
+                "text": "Барокко",
+                "isRightAnswer": false
+            },
+            {
+                "text": "Рококо",
+                "isRightAnswer": true
+            },
+            {
+                "text": "Ар-деко",
+                "isRightAnswer": false
+            }
+        ]
+    },
+    "napoleon": {
+        "question": "Кто был личным и единственным художником Наполеона Бонапарта?",
+        "variants": [
+            {
+                "text": "Эжен Делакруа",
+                "isRightAnswer": false
+            },
+            {
+                "text": "Жан-Поль Марат",
+                "isRightAnswer": false
+            },
+            {
+                "text": "Жак Луи Давид",
+                "isRightAnswer": true
+            }
+        ]
+    },
+    "byust" : {
+        "question": "Назовите автора бронзового бюста Петра I ?",
+        "variants": [
+            {
+                "text": "Б.К. Растрелли",
+                "isRightAnswer": true
+            },
+            {
+                "text": "Фальконе",
+                "isRightAnswer": false
+            },
+            {
+                "text": "Ф. Шубин",
+                "isRightAnswer": false
+            }
+        ]
+    },
+    "dvorez" : {
+        "question": "Что из перечисленного находится в Петродворце?",
+        "variants": [
+            {
+                "text": "Александро-Невская лавра",
+                "isRightAnswer": false
+            },
+            {
+                "text": "Дворец Монплезир",
+                "isRightAnswer": true
+            },
+            {
+                "text": "Константиновский дворец",
+                "isRightAnswer": false
+            }
+        ]
+    }
+}

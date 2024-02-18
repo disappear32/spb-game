@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Spb Game</title>
+
+    <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <script type="module" src="lib/phaser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+        }
+
+        #game-back {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            background-image: url('./resources/game-background.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        #game-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        }
+
+        #modal {
+            position: absolute;
+            width: 880px;
+            height: 550px;
+            border-radius: 25px;
+            background-color: rgba(109, 109, 109, 1);
+            animation: fadeModal 1s;
+        }
+
+        #image {
+            width: 420px;
+            height: 100%;
+            border-radius: 10px;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        #blur {
+            position: fixed;
+            top: 0;
+            background-color: black;
+            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            animation: fadeBlur 1s;
+        }
+
+        .text-block {
+            width: calc(100% - 300px);
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 0;
+            margin-top: 25px;
+        }
+
+        li {
+            font-family: Roboto;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            color: white;
+            margin-top: 15px;
+        }
+
+        li:hover {
+            color: rgb(243, 243, 71);
+        }
+
+        #question {
+            font-family: Roboto;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 500;
+            color: white;
+        }
+
+        @keyframes fadeModal {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeBlur {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="game-back">
+        <div style="backdrop-filter: blur(4px); width: 100%; height: 100%; position: absolute;"></div>
+        <div id="game-container">
+        </div>
+
+        <div id="blur" style="display: none;"></div>
+
+        <div id="modal" style="display: none;">
+            <div
+                style="padding: 20px; width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: row;">
+                <div id="image"></div>
+                <article class="text-block">
+                    <div id="question"></div>
+                    <ul id="answers">
+                        <li id="1"></li>
+                        <li id="2"></li>
+                        <li id="3"></li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+
+</body>
+
+</html>
